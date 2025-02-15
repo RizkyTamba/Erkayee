@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,3 +86,88 @@
 </footer>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplikasi Daftar Tugas sederhana untuk mengelola tugas harian Anda.">
+    <title>Daftar Tugas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <h1>Daftar Tugas</h1>
+            </div>
+            <div class="header-button">
+                <button id="themeToggle" class="toggle-theme" aria-label="Toggle Theme">🌓</button>
+                <button id="toggleSidebar" class="toggle-sidebar" aria-label="Toggle Sidebar" aria-expanded="false">☰</button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <h2>Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="#today">Today</a></li>
+                    <li><a href="#upcoming">Upcoming</a></li>
+                    <li><a href="#calendar">Calendar</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Form untuk menambahkan tugas -->
+            <section class="form-container">
+                <form id="taskForm">
+                    <div id="error-message" style="color: red;"></div>
+                    <label for="task">Tugas:</label>
+                    <input type="text" id="task" placeholder="Masukkan tugas Anda" required autocomplete="off">
+
+                    <label for="dueDate">Tanggal Jatuh Tempo:</label>
+                    <input type="datetime-local" id="dueDate" required>
+
+                    <!-- Tombol Prioritas -->
+                    <div class="priority-buttons">
+                        <button type="button" class="priority-btn active" data-priority="low" aria-pressed="true">Low</button>
+                        <button type="button" class="priority-btn" data-priority="medium" aria-pressed="false">Medium</button>
+                        <button type="button" class="priority-btn" data-priority="high" aria-pressed="false">High</button>
+                    </div>
+
+                    <button type="submit">Tambah Tugas</button>
+                </form>
+            </section>
+
+            <!-- Search Bar -->
+            <section class="search-container">
+                <input type="text" id="searchInput" placeholder="Cari tugas..." />
+                <button id="searchButton">Cari</button>
+            </section>
+
+            <!-- Daftar Tugas -->
+            <section class="task-list">
+                <h2>Daftar Tugas</h2>
+                <ul id="taskList"></ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Daftar Tugas. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
+>>>>>>> ab017e3 (toggle tema dipindah, functionnya diperbaiki)
