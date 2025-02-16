@@ -3,4 +3,6 @@ fitur baru website to-do list
 1. progress bar
 2. attach file
 3. kategori label
+  ^tentukan format data dalam label
+  ^tambahkan pilihan kategori saat nambah tugas
 4. edit file
