@@ -5,4 +5,6 @@ fitur baru website to-do list
   ^struktur data untuk task
 2. attach file
 3. kategori label
+  ^tentukan format data dalam label
+  ^tambahkan pilihan kategori saat nambah tugas
 4. edit file
