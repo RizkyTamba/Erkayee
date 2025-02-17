@@ -21,6 +21,7 @@ priorityButtons.forEach(button => {
         document.querySelector('.priority-btn[aria-pressed="true"]')?.setAttribute('aria-pressed', 'false');
         e.currentTarget.setAttribute('aria-pressed', 'true');
         selectedPriority = e.currentTarget.getAttribute('data-priority');
+        console.log('Selected Priority:', selectedPriority);
     });
 });
 
@@ -68,14 +69,14 @@ taskForm.addEventListener('submit', (e) => {
     `;
     taskList.appendChild(listItem);
 
-    // Reset form dan prioritas
-    taskForm.reset();
-    selectedPriority = 'low';
-    document.querySelector('.priority-btn[aria-pressed="true"]')?.setAttribute('aria-pressed', 'false');
-    document.querySelector('[data-priority="low"]').setAttribute('aria-pressed', 'true');
-
     saveTasks();
+
+    //Reset formulir setelah tugas ditambahkan
+    taskInput.value='';
+    dueDateInput.value='';
+    errorMessage.textContent='';
 });
+
 
 // Fungsi untuk menghapus dan menandai tugas
 taskList.addEventListener('click', (e) => {
@@ -113,7 +114,7 @@ searchButton.addEventListener('click', () => {
 function saveTasks() {
     const tasks = Array.from(taskList.children).map(task => ({
         text: task.querySelector('.task-text').textContent,
-        dueDate: dueDateInput.value, // Simpan dalam format yang lebih aman
+        dueDate: task.querySelector('.task-due-date').textContent, // Ini bisa diubah menjadi string ISO
         priority: task.classList[0],
         completed: task.querySelector('.task-checkbox').checked
     }));
@@ -122,6 +123,7 @@ function saveTasks() {
 
 // Fungsi untuk memuat tugas dari localStorage
 function loadTasks() {
+    taskList.innerHTML = ''; // Kosongkan daftar tugas sebelum memuat
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => {
         const listItem = document.createElement('li');
@@ -129,9 +131,7 @@ function loadTasks() {
         listItem.innerHTML = `
             <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''}>
             <span class="task-text">${task.text}</span> - 
-            <span class="task-due-date">${new Date(task.dueDate).toLocaleString('id-ID', {
-                year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'
-            })}</span> - 
+            <span class="task-due-date">${task.dueDate}</span> - 
             <span class="task-priority">${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}</span>
             <button class="delete-task">🗑️</button>
         `;

@@ -22,7 +22,7 @@ body {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .search-container button {
@@ -31,7 +31,7 @@ body {
     background-color: #333;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .search-container button:hover {
@@ -120,27 +120,76 @@ header {
     margin-bottom: 20px;
 }
 
-.form-container input,
-.form-container button {
+.form-container input {
     margin: 5px 0;
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.priority-buttons button[aria-pressed="true"]{
-    background-color: #555;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+.placeholder {
+    border-radius: 10px;
 }
 
-.priority-buttons button:hover {
-    background-color: #555;
-    color: #fff;
+.dueDateBar {
+    border-radius: 10px;
+}
+
+
+.priority-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.low-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.medium-btn {
+    padding: 10px 20px;
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.high-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.low-btn:hover, .medium-btn:hover, .high-btn:hover {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.add-btn:hover {
+    background-color: #218838;
 }
 
 .task-list ul {
@@ -152,7 +201,7 @@ header {
     background-color: #fff;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -239,6 +288,13 @@ body.dark-theme input::placeholder {
     color: #bbb;
 }
 
+body.dark-theme .low-btn:hover,
+body.dark-theme .medium-btn:hover,
+body.dark-theme .high-btn:hover,
+body.dark-theme .add-btn:hover {
+    opacity: 0.8;
+}
+
 /* Media Query untuk Responsivitas */
 @media (max-width: 768px) {
     .sidebar {
@@ -252,5 +308,10 @@ body.dark-theme input::placeholder {
     .main-content {
         max-width: 100%;
         padding: 10px; /* Padding lebih kecil di perangkat kecil */
+    }
+
+    .priority-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }

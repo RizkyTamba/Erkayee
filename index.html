@@ -41,19 +41,19 @@
                 <form id="taskForm">
                     <div id="error-message" style="color: red;"></div>
                     <label for="task">Tugas:</label>
-                    <input type="text" id="task" placeholder="Masukkan tugas Anda" required autocomplete="off">
+                    <input type="text" class="placeholder" id="task" placeholder="Masukkan tugas Anda" required autocomplete="off">
 
                     <label for="dueDate">Tanggal Jatuh Tempo:</label>
-                    <input type="datetime-local" id="dueDate" required>
+                    <input type="datetime-local" class="dueDateBar" id="dueDate" required>
 
                     <!-- Tombol Prioritas -->
                     <div class="priority-buttons">
-                        <button type="button" class="priority-btn active" data-priority="low" aria-pressed="true">Low</button>
-                        <button type="button" class="priority-btn" data-priority="medium" aria-pressed="false">Medium</button>
-                        <button type="button" class="priority-btn" data-priority="high" aria-pressed="false">High</button>
+                        <button type="button" class="priority-btn low-btn" data-priority="low" aria-pressed="true">Low</button>
+                        <button type="button" class="priority-btn medium-btn" data-priority="medium" aria-pressed="false">Medium</button>
+                        <button type="button" class="priority-btn high-btn" data-priority="high" aria-pressed="false">High</button>
                     </div>
 
-                    <button type="submit">Tambah Tugas</button>
+                    <button type="submit"  class="add-btn">Tambah Tugas</button>
                 </form>
             </section>
 
@@ -79,4 +79,6 @@
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
+
